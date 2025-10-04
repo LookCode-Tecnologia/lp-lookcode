@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5511933043152text=Olá! Gostaria de saber mais sobre os serviços da Look Code.', '_blank');
+    window.open('https://wa.me/5511933043152?text=Olá! Gostaria de saber mais sobre os serviços da Look Code.', '_blank');
   };
 
   return (
