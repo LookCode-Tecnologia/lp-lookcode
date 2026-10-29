@@ -1,0 +1,41 @@
+export const services = [
+ {id:10,number:'01',icon:'WalletCards',title:'Sua plataforma de pagamentos',desc:'Desenvolvemos gateways e hubs sob medida para centralizar transações, conectar provedores e aplicar as regras da sua operação. Mais controle para acompanhar cobranças, status e estornos em um só lugar.',tags:['Múltiplos provedores','Gestão de transações','Regras de negócio'],span:'md:col-span-2'},
+ {id:4,number:'02',icon:'Smartphone',title:'Aplicativos',desc:'Seu negócio nas mãos dos seus clientes. Apps para iOS e Android com experiência integrada.',tags:['React Native','iOS','Android'],span:'md:col-span-2'},
+ {id:5,number:'03',icon:'Layers',title:'Telecom',desc:'Sistemas para operadoras e provedores que conectam faturamento, atendimento e gestão da operação.',tags:['BSS/OSS','Billing','CRM'],span:'md:col-span-2'},
+ {id:3,number:'04',icon:'Code2',title:'Sistemas sob medida',desc:'Aplicações rápidas, robustas e preparadas para crescer com sua operação.',tags:['React','Node.js','NestJS'],span:'md:col-span-2'},
+ {id:12,number:'05',icon:'Sparkles',title:'IA aplicada ao seu negócio',desc:'Criamos assistentes e automações com IA que atendem clientes, consultam informações e executam tarefas nos seus sistemas. Do atendimento à leitura de documentos, conectamos a inteligência artificial à sua operação para reduzir trabalho repetitivo e dar mais tempo à sua equipe.',tags:['Assistentes inteligentes','Automação de processos','Integração com seus sistemas'],span:'md:col-span-2'},
+ {id:9,number:'06',icon:'CreditCard',title:'Integração de pagamentos',desc:'Conecte Pix, cartões e gateways ao seu site, aplicativo ou sistema. Automatize a confirmação de pagamentos e acompanhe os recebimentos com menos conferência manual.',tags:['Pix & cartões','Checkout integrado','Confirmação automática'],span:'md:col-span-2'},
+ {id:11,number:'07',icon:'Truck',title:'Sistemas logísticos sob medida',desc:'Conecte pedidos, estoque, expedição e entregas em uma operação integrada. Dê à sua equipe visibilidade de cada etapa para agir sobre atrasos e reduzir retrabalho.',tags:['Pedidos & estoque','Expedição & entregas','Rastreabilidade'],span:'md:col-span-2'},
+ {id:1,number:'08',icon:'Compass',title:'Estratégia & consultoria',desc:'Entendemos seu negócio para transformar desafios em um plano de desenvolvimento claro.',tags:['Diagnóstico','Arquitetura','Roadmap'],span:'md:col-span-2'},
+ {id:2,number:'09',icon:'Paintbrush',title:'Design de interfaces',desc:'Experiências claras e intuitivas, pensadas para quem usa seu produto.',tags:['UI/UX','Protótipos','Design systems'],span:'md:col-span-1'},
+ {id:6,number:'10',icon:'TrendingUp',title:'E-commerce',desc:'Lojas virtuais que conectam uma boa experiência a uma operação eficiente.',tags:['Catálogo','Checkout','Pagamentos'],span:'md:col-span-1'},
+ {id:7,number:'11',icon:'Cpu',title:'Integrações & automação',desc:'Conectamos sistemas, gateways de pagamento e regras de negócio complexas para simplificar sua operação.',tags:['APIs','Mercado Pago','Stripe','Automação'],span:'md:col-span-1'},
+ {id:8,number:'12',icon:'Shield',title:'Evolução & suporte',desc:'Uma parceria que continua depois da entrega, com manutenção e evolução do seu produto.',tags:['Monitoramento','Manutenção','Cloud'],span:'md:col-span-1'},
+]
+export const caseStudies = [
+ {id:1,company:'Operações conectadas',industry:'Telecom',result:'BSS / OSS & billing',desc:'Integração de processos, faturamento e gestão para operadoras e provedores.',services:['Telecom','APIs','Automação'],accentColor:'from-primary/30 to-transparent'},
+ {id:2,company:'Negócios em movimento',industry:'Mobile',result:'iOS & Android',desc:'Aplicações móveis que levam seus serviços a mais pessoas com uma experiência consistente.',services:['React Native','UX','Integração'],accentColor:'from-secondary/20 to-transparent'},
+ {id:3,company:'Relacionamentos melhores',industry:'CRM',result:'Dados que conectam',desc:'Sistemas que aproximam vendas, suporte e gestão em uma operação integrada.',services:['Sistemas','CRM','Backend'],accentColor:'from-signal/10 to-transparent'},
+ {id:4,company:'Vendas sem barreiras',industry:'E-commerce',result:'Da vitrine ao pagamento',desc:'Experiências de compra integradas ao catálogo, aos pagamentos e às regras do seu negócio.',services:['E-commerce','Pagamentos','Web'],accentColor:'from-primary/30 to-transparent'},
+ {id:5,company:'Do pagamento à entrega',industry:'Pagamentos & logística',result:'Sua operação conectada, de ponta a ponta',desc:'Integramos pagamentos ao seu sistema, desenvolvemos plataformas próprias para gerenciar transações e criamos sistemas logísticos para conectar pedidos, estoque e entregas. Mais controle dos recebimentos e visibilidade da operação, com menos trabalho manual.',services:['Integração de pagamentos','Plataformas de pagamentos','Sistemas logísticos'],accentColor:'from-secondary/20 via-primary/10 to-transparent',wide:true},
+]
+export const team = [
+ {name:'Estratégia',role:'Negócio & produto',quote:'A solução começa com a pergunta certa.',colors:['#00D9FF','#080812']},
+ {name:'Experiência',role:'Design & interfaces',quote:'Cada interação deve fazer sentido para quem usa.',colors:['#0066FF','#080812']},
+ {name:'Engenharia',role:'Software & arquitetura',quote:'Código que resolve hoje e permite crescer amanhã.',colors:['#00AFDF','#080812']},
+ {name:'Evolução',role:'Cloud & suporte',quote:'A entrega é o começo da próxima melhoria.',colors:['#3385FF','#080812']},
+]
+export const faqs = [
+ {q:'Como a IA pode ajudar meu negócio?',a:'Podemos criar assistentes para atendimento e consultas internas, automatizar tarefas e extrair informações de documentos. Primeiro identificamos onde há trabalho repetitivo ou dificuldade de acesso à informação; depois definimos uma solução integrada aos seus sistemas, com revisão humana nas etapas que precisam de validação.'},
+ {q:'Qual a diferença entre integrar pagamentos e criar uma plataforma própria?',a:'A integração conecta seu site, aplicativo ou sistema a um provedor de pagamentos. Já uma plataforma própria organiza a operação em uma camada sob medida, com regras de negócio, gestão de transações e conexão com diferentes provedores. Ajudamos você a definir qual caminho faz sentido para o seu momento.'},
+ {q:'Posso integrar pagamentos sem substituir meu sistema?',a:'Avaliamos as APIs e a estrutura do seu sistema para conectar o fluxo de pagamento à operação existente. O projeto pode incluir checkout, confirmação automática, consulta de status e estornos, conforme os recursos do provedor escolhido.'},
+ {q:'O que um sistema logístico pode organizar na minha operação?',a:'Podemos desenvolver fluxos para gestão de pedidos, estoque, expedição e acompanhamento de entregas, com integração ao seu ERP, e-commerce ou transportadoras. O escopo parte dos gargalos da sua operação e das informações que sua equipe precisa acompanhar.'},
+ {q:'Como começamos um projeto?',a:'Entre em contato pelo WhatsApp. Vamos entender seu desafio, o momento do negócio e os objetivos para definir os próximos passos.'},
+ {q:'Quanto tempo leva o desenvolvimento?',a:'O prazo depende do escopo e das integrações. Após o diagnóstico, definimos as etapas, as prioridades e um cronograma alinhado com você.'},
+ {q:'Vocês desenvolvem sistemas sob medida?',a:'Sim. Desenvolvemos sistemas personalizados, aplicações web e mobile, plataformas de pagamentos, sistemas logísticos, telecom, CRM e e-commerce.'},
+ {q:'É possível integrar meu sistema atual?',a:'Sim. Avaliamos suas APIs, os dados e as regras de negócio para planejar uma integração adequada à operação.'},
+ {q:'Vocês criam aplicativos para iOS e Android?',a:'Sim. Trabalhamos com React Native e tecnologias para entregar aplicações móveis para as duas plataformas.'},
+ {q:'Como funciona o orçamento?',a:'A proposta considera escopo, complexidade e entregas. Fale com nossos especialistas para receber uma avaliação sem compromisso.'},
+ {q:'Existe suporte após a entrega?',a:'Oferecemos manutenção, suporte e evolução. As condições e a disponibilidade são definidas na proposta de cada projeto.'},
+ {q:'Como acompanho o andamento?',a:'Organizamos o trabalho em etapas e compartilhamos as entregas para que você acompanhe e valide a evolução do produto.'},
+]

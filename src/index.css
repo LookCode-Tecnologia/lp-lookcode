@@ -1,22 +1,82 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
 @layer base {
-  body {
-    font-smoothing: antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-surface-950 text-copy-100 font-body overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    @apply bg-signal text-ink-950;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { @apply bg-surface-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-signal rounded-full; }
 }
 
 @layer utilities {
-  .gradient-blue {
-    background: linear-gradient(135deg, #0066FF 0%, #00D9FF 100%);
+  .text-balance { text-wrap: balance; }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
   }
 
-  .gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(135deg, #0066FF 0%, #00D9FF 100%);
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
   }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+}
+
+:root { color-scheme: dark; }
+html { scroll-padding-top: 100px; }
+body { margin: 0; }
+:focus-visible { outline: 2px solid #00D9FF; outline-offset: 6px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 10000; background: #00D9FF; color: #04040a; padding: 12px 20px; }
+.skip-link:focus { top: 16px; }
+.text-stroke { -webkit-text-stroke-color: #b8c8df; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .look-cursor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+@media (hover: none) {
+ #work .group > .translate-y-full { transform: translateY(0); background: rgb(4 4 10 / 92%); }
+}
+#work .group { min-height: 300px; }
+#main:focus, section[tabindex="-1"]:focus { outline: none; }
+
+/* Native scroll drives the pinned principles; no wheel or touch interception. */
+.principles-scroll { height: 400svh; }
+.principles-sticky { position: sticky; top: 0; min-height: 100svh; padding-block: clamp(5rem, 12svh, 8rem); }
+.principles-copy { min-height: clamp(15rem, 42svh, 22rem); }
+.principles-controls { margin-top: clamp(1.5rem, 5svh, 5rem); }
+@media (prefers-reduced-motion: reduce), (max-height: 540px) {
+ .principles-scroll { height: auto; }
+ .principles-sticky { position: relative; min-height: auto; }
+ .principles-scroll-hint { display: none; }
+}
+
+/* Keep prerendered content readable before JavaScript, including with JS disabled. */
+html:not(.is-hydrated) #root [style*="opacity:0"] {
+  opacity: 1 !important;
+  transform: none !important;
 }
