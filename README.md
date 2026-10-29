@@ -71,7 +71,7 @@ Projeto Look Code: ISC. Os componentes adaptados de Nexus Studio estão sujeitos
 - `scripts/prerender.mjs`: HTML estático, metadados Open Graph/Twitter, dados estruturados de organização e catálogo de serviços, `robots.txt`, `sitemap.xml` e `CNAME`.
 - `npm run check:seo`: verifica o último build, incluindo conteúdo, FAQ, títulos, canonicals, sitemap, JSON-LD e referências a assets.
 
-Publique **todo o conteúdo de `dist/`**, incluindo as pastas `privacy-policy/` e `terms-of-service/`. Se o GitHub Pages estiver configurado para publicar a pasta `docs/`, ela precisa receber o conteúdo do novo build. Alterar apenas o código-fonte não atualiza o site público. Configure a hospedagem para retornar HTTP 404 para URLs inexistentes, sem reescrever todas as URLs para a home.
+O GitHub Pages publica a pasta `docs/` da branch `main`. Execute `npm run prepare:pages` para gerar e validar o build e atualizar essa pasta, incluindo as rotas, assets, `CNAME` e `.nojekyll`. Faça commit e push dos arquivos atualizados para publicar. Alterar apenas o código-fonte não atualiza o site público. Configure a hospedagem para retornar HTTP 404 para URLs inexistentes, sem reescrever todas as URLs para a home.
 
 Após publicar:
 
