@@ -1,22 +1,12 @@
 import { useRef, useEffect } from 'react'
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { ChevronDown } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
 import AnimatedCounter from '../ui/AnimatedCounter'
 
 export default function Hero() {
   const reduced = useReducedMotion()
-  const containerRef = useRef(null)
   const blobRef = useRef(null)
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -33,28 +23,21 @@ export default function Hero() {
   const line2 = "soluções digitais".split(' ')
   const line3 = "que conectam.".split(' ')
 
-  let wordIndex = 0
-
   const renderWords = (words, stroke = false) => {
     return words.map((word, i) => {
-      const currentDelay = (wordIndex++) * 0.08
       return (
-        <motion.span
+        <span
           key={i}
-          initial={{ opacity: 0, y: 60, rotateX: -40 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ delay: currentDelay, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className={`inline-block mr-[2vw] ${stroke ? 'text-stroke opacity-90' : 'text-foreground'}`}
-          style={{ transformOrigin: "bottom center" }}
         >
           {word}
-        </motion.span>
+        </span>
       )
     })
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-surface-950 overflow-hidden flex flex-col justify-center pt-20 pb-20">
+    <section className="relative min-h-screen bg-surface-950 overflow-hidden flex flex-col justify-center pt-20 pb-20">
 
       {/* Dynamic Backgrounds */}
       <div
@@ -64,18 +47,15 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
       <div className="grain absolute inset-0 z-[1]"></div>
 
-      <motion.div style={reduced ? {} : { opacity, scale, y }} className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-start mt-4 sm:mt-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-start mt-4 sm:mt-10">
 
         {/* Top Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        <div
           className="bg-surface-800 border border-foreground/10 text-copy-900 font-mono text-xs px-4 py-2 rounded-full mb-12 flex items-center gap-2"
         >
           <div className="w-1.5 h-1.5 bg-signal rounded-full animate-pulse-slow"></div>
           Desenvolvimento de software sob medida &rarr;
-        </motion.div>
+        </div>
 
         {/* Headlines */}
         <h1 className="font-display text-[clamp(3.3rem,8.8vw,10rem)] leading-[0.9] tracking-tight mb-8 w-full perspective-1000" data-cursor="hover">
@@ -84,21 +64,15 @@ export default function Hero() {
           <div className="overflow-visible pb-1 sm:pb-2">{renderWords(line3)}</div>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
+        <p
           className="font-body text-copy-900 text-lg md:text-xl max-w-lg mb-12 leading-relaxed"
           data-cursor="text"
         >
           A Look Code desenvolve sistemas sob medida, aplicativos para iOS e Android e soluções com inteligência artificial. Integramos pagamentos, logística e telecom para simplificar processos e conectar sua operação.
-        </motion.p>
+        </p>
 
         {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.8 }}
+        <div
           className="flex flex-wrap items-center gap-6"
         >
           <MagneticButton href="#work" target="_self" className="bg-signal text-ink-950 font-display font-medium px-8 py-4 rounded-full text-lg hover:shadow-[0_0_30px_rgba(0,217,255,0.3)] transition-all">
@@ -107,9 +81,9 @@ export default function Hero() {
           <button onClick={() => document.getElementById("process").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })} className="border border-foreground/20 text-copy-900 hover:text-foreground hover:border-foreground/40 hover:bg-foreground/5 font-display font-medium px-8 py-4 rounded-full text-lg transition-all" data-cursor="hover">
             Como trabalhamos
           </button>
-        </motion.div>
+        </div>
 
-      </motion.div>
+      </div>
 
       {/* Floating Elements & Decorations */}
       <motion.div
