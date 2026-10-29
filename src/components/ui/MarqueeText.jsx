@@ -1,22 +1,23 @@
 
-export default function MarqueeText({ items, speed = 'slow', direction = 'forward' }) {
-  // We'll rely on the Tailwind config animations for marquee
+import { useRef } from 'react'
+import { useInView } from 'motion/react'
+
+export default function MarqueeText({ items, direction = 'forward' }) {
+  const viewportRef = useRef(null)
+  const inView = useInView(viewportRef, { once: true, margin: '200px 0px' })
   const animationClass = direction === 'reverse' ? 'animate-marquee-reverse' : 'animate-marquee'
 
   return (
-    <div className="flex overflow-hidden relative w-full">
-      <div className={`flex whitespace-nowrap ${animationClass}`}>
-        {items.map((item, index) => (
-          <div key={index} className="flex items-center">
-            <span className="mx-8">{item}</span>
-            <span className="text-signal/30 text-sm">◆</span>
-          </div>
-        ))}
-        {/* Duplicate items for seamless loop */}
-        {items.map((item, index) => (
-          <div key={`dup-${index}`} className="flex items-center">
-            <span className="mx-8">{item}</span>
-            <span className="text-signal/30 text-sm">◆</span>
+    <div ref={viewportRef} className="marquee-viewport relative w-full overflow-hidden">
+      <div className={`marquee-track ${animationClass}`} style={{ animationPlayState: inView ? 'running' : 'paused' }}>
+        {[0, 1].map(copy => (
+          <div key={copy} className="marquee-copy" aria-hidden={copy === 1 ? true : undefined}>
+            {items.map((item, index) => (
+              <div key={index} className="flex shrink-0 items-center">
+                <span className="mx-8">{item}</span>
+                <span aria-hidden="true" className="text-signal/30 text-sm">◆</span>
+              </div>
+            ))}
           </div>
         ))}
       </div>

@@ -1,4 +1,3 @@
-import { motion } from 'motion/react'
 import { Compass, Paintbrush, Code2, Smartphone, Layers, TrendingUp, Cpu, Shield, CreditCard, WalletCards, Truck, Sparkles, Circle } from 'lucide-react'
 import { getContactUrl } from '../../data/contact'
 import { services } from '../../data/content'
@@ -18,21 +17,17 @@ export default function ServicesGrid() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(280px,auto)]">
-          {services.map((service, i) => {
+          {services.map((service) => {
             const IconComponent = icons[service.icon] || Circle
             const isLarge = service.span === 'md:col-span-2' || service.span === 'md:col-span-3'
 
             return (
-              <motion.a
+              <a
                 href={getContactUrl(`Olá! Tenho interesse em ${service.title.toLowerCase()}. Gostaria de conversar sobre minha operação.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: i * 0.05 }}
-                className={`${service.span} bg-surface-800 border border-foreground/5 p-8 relative overflow-hidden group hover:border-signal/40 hover:scale-[1.01] transition-all duration-500 hover:bg-surface-800/80 flex flex-col justify-between`}
+                className={`${service.span} bg-surface-800 border border-foreground/5 p-8 relative overflow-hidden group hover:border-signal/40 transition-colors duration-300 hover:bg-surface-800/80 flex flex-col justify-between`}
                 data-cursor="hover"
               >
                 {/* Background glow effect on hover */}
@@ -66,7 +61,7 @@ export default function ServicesGrid() {
                 <div className="absolute right-8 bottom-8 flex items-center gap-2 text-signal font-mono text-sm translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 transition-all duration-300">
                   <span className="hidden sm:inline">Conversar sobre a solução</span> &rarr;
                 </div>
-              </motion.a>
+              </a>
             )
           })}
         </div>

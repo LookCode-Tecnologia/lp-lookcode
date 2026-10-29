@@ -44,6 +44,16 @@
 }
 
 :root { color-scheme: dark; }
+/* Keep the moving strips in their own paint layers during Safari touch scrolling. */
+.marquee-viewport { contain: paint; }
+.marquee-track { display: flex; width: max-content; white-space: nowrap; will-change: transform; backface-visibility: hidden; }
+.marquee-copy { display: flex; flex: 0 0 auto; }
+@media (hover: hover) and (pointer: fine) {
+ .solutions-marquees:hover .marquee-track { animation-play-state: paused !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .marquee-track { animation: none !important; transform: none; will-change: auto; }
+}
 html { scroll-padding-top: 100px; }
 body { margin: 0; }
 :focus-visible { outline: 2px solid #00D9FF; outline-offset: 6px; }
