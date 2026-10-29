@@ -1,23 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TermsOfService = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-6">
-          <button
-            onClick={() => navigate('/')}
+          <Link
+            to="/"
             className="flex items-center space-x-2 text-primary hover:text-secondary transition-colors cursor-pointer"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             <span className="font-semibold">Voltar para o site</span>
-          </button>
+          </Link>
         </div>
       </header>
 
