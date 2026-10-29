@@ -18,21 +18,28 @@ export default function Navbar() {
     if (!open) return
     const old = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    panel.current?.querySelector('a')?.focus()
+    const viewport = window.visualViewport
+    const resizePanel = () => {
+      if (panel.current) panel.current.style.height = `${viewport?.height ?? window.innerHeight}px`
+    }
+    resizePanel()
+    viewport?.addEventListener('resize', resizePanel)
+    window.addEventListener('resize', resizePanel)
+    panel.current?.focus({ preventScroll: true })
     const close = () => { setOpen(false); toggle.current?.focus() }
     const handleKey = e => {
       if (e.key === 'Escape') close()
       if (e.key === 'Tab') {
         const controls = [toggle.current, ...panel.current.querySelectorAll('a')]
         const first = controls[0], last = controls.at(-1)
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === panel.current)) { e.preventDefault(); last.focus() }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
       }
     }
     const media = window.matchMedia('(min-width: 768px)')
     media.addEventListener('change', close)
     document.addEventListener('keydown', handleKey)
-    return () => { document.body.style.overflow = old; document.removeEventListener('keydown', handleKey); media.removeEventListener('change', close) }
+    return () => { viewport?.removeEventListener('resize', resizePanel); window.removeEventListener('resize', resizePanel); document.body.style.overflow = old; document.removeEventListener('keydown', handleKey); media.removeEventListener('change', close) }
   }, [open])
   return <>
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${open ? 'bg-surface-950 py-4' : scrolled ? 'backdrop-blur-xl bg-surface-950/80 border-b border-foreground/5 py-4' : 'bg-transparent py-6'}`}>
@@ -44,32 +51,32 @@ export default function Navbar() {
       </div>
     </header>
     <AnimatePresence>{open && <motion.div
-      ref={panel} id="mobile-menu"
+      ref={panel} id="mobile-menu" tabIndex={-1}
       initial={{ opacity: 0, y: reduced ? 0 : -8 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: reduced ? 0 : -6 }}
       transition={{ duration: reduced ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-40 bg-surface-950 overflow-y-auto overscroll-contain md:hidden"
+      className="mobile-menu fixed top-0 inset-x-0 z-40 bg-surface-950 overflow-y-auto overscroll-contain md:hidden"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(ellipse_at_top_right,rgba(0,102,255,0.12),transparent_70%)]" />
-      <div className="relative mx-auto flex min-h-[100dvh] max-w-lg flex-col px-6 pt-28 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-copy-900 mb-5">Explore a Look Code</p>
-        <nav aria-label="Navegação mobile" className="rounded-2xl border border-foreground/[0.07] bg-foreground/[0.025] px-5">
-          {links.map(([label,id],i) => <a
+      <div className="mobile-menu-content relative mx-auto flex min-h-full max-w-lg flex-col px-6">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-copy-900 mb-3">Explore a Look Code</p>
+        <nav aria-label="Navegação mobile" className="flex flex-col gap-1">
+          {links.map(([label,id]) => <a
             key={id} href={`#${id}`}
-            className="group flex min-h-16 items-center justify-between gap-4 border-b border-foreground/[0.07] py-4 last:border-0 text-copy-500 transition-colors duration-200 hover:text-signal focus-visible:text-signal"
+            className="mobile-menu-link group flex min-h-12 items-center justify-between gap-4 rounded-xl px-3 py-3 text-copy-500 transition-colors duration-200 hover:bg-foreground/[0.04] hover:text-foreground"
             onClick={() => {setOpen(false); requestAnimationFrame(() => { const section = document.getElementById(id); section?.setAttribute('tabindex','-1'); section?.focus({preventScroll:true}) })}}
           >
-            <span className="flex items-center gap-4"><span aria-hidden="true" className="font-mono text-[10px] text-copy-900">{String(i + 1).padStart(2, '0')}</span><span className="font-display text-2xl font-medium tracking-tight">{label}</span></span>
+            <span className="font-display text-[22px] font-medium tracking-tight">{label}</span>
             <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.5} className="text-copy-900 group-hover:text-signal" />
           </a>)}
         </nav>
-        <div className="mt-auto pt-8">
-          <p className="font-body text-sm text-copy-900 mb-4">Vamos tirar sua ideia do papel?</p>
-          <a href={contactUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="flex min-h-14 items-center justify-between gap-3 rounded-2xl bg-signal px-5 py-4 text-ink-950 font-body text-base font-semibold transition-colors hover:bg-secondary/90">
+        <div className="mobile-menu-footer mt-auto pt-5">
+          <p className="font-body text-sm text-copy-900 mb-3">Vamos tirar sua ideia do papel?</p>
+          <a href={contactUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mobile-menu-contact flex min-h-12 items-center justify-between gap-3 rounded-full bg-signal px-5 py-3 text-ink-950 font-body text-base font-semibold transition-colors hover:bg-secondary/90">
             Conversar sobre meu projeto <ArrowUpRight aria-hidden="true" size={19} strokeWidth={1.8} />
           </a>
-          <p className="mt-6 text-center font-mono text-[10px] tracking-wide text-copy-900">Estratégia. Design. Engenharia.</p>
+          <p className="mt-4 text-center font-mono text-[10px] tracking-wide text-copy-900">Estratégia. Design. Engenharia.</p>
         </div>
       </div>
     </motion.div>}</AnimatePresence>

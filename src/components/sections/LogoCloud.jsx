@@ -14,21 +14,24 @@ export default function LogoCloud() {
   const mapped2 = reversedSolutions.map(c => <SolutionText key={c} name={c} />)
 
   return (
-    <section className="bg-surface-900 py-24 pb-32 border-b border-foreground/5 relative isolate overflow-hidden group" aria-label="Soluções para o seu negócio">
-      <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
+    <section className="bg-surface-900 py-16 md:py-24 md:pb-32 border-b border-foreground/5 relative md:isolate md:overflow-hidden group" aria-label="Soluções para o seu negócio">
+      <div className="max-w-7xl mx-auto px-6 mb-10 md:mb-16 relative z-10">
         <p className="text-center font-mono text-xs text-copy-900 uppercase tracking-widest">
           Soluções para o que seu negócio precisa
         </p>
       </div>
 
-      <div className="solutions-marquees flex flex-col gap-12">
+      <ul className="md:hidden px-6 flex flex-wrap justify-center gap-x-6 gap-y-5">
+        {solutions.map(name => <li key={name} className="font-display text-2xl font-medium text-copy-700 text-center">{name}</li>)}
+      </ul>
+      <div className="solutions-marquees hidden md:flex flex-col gap-12">
         <MarqueeText items={mapped1} direction="forward" />
         <MarqueeText items={mapped2} direction="reverse" />
       </div>
 
       {/* Fade edges */}
-      <div className="absolute top-0 bottom-0 left-0 w-10 md:w-32 bg-gradient-to-r from-surface-900 to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute top-0 bottom-0 right-0 w-10 md:w-32 bg-gradient-to-l from-surface-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="hidden md:block absolute top-0 bottom-0 left-0 w-10 md:w-32 bg-gradient-to-r from-surface-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="hidden md:block absolute top-0 bottom-0 right-0 w-10 md:w-32 bg-gradient-to-l from-surface-900 to-transparent z-10 pointer-events-none"></div>
     </section>
   )
 }
