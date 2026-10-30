@@ -14,15 +14,15 @@ export default function LogoCloud() {
   const mapped2 = reversedSolutions.map(c => <SolutionText key={c} name={c} />)
 
   return (
-    <section className="bg-surface-900 py-16 md:py-24 md:pb-32 border-b border-foreground/5 relative md:isolate md:overflow-hidden group" aria-label="Soluções para o seu negócio">
+    <section id="solutions-band" className="bg-surface-900 py-16 md:py-24 md:pb-32 border-b border-foreground/5 relative isolate md:overflow-hidden group" aria-label="Soluções para o seu negócio">
       <div className="max-w-7xl mx-auto px-6 mb-10 md:mb-16 relative z-10">
         <p className="text-center font-mono text-xs text-copy-900 uppercase tracking-widest">
           Soluções para o que seu negócio precisa
         </p>
       </div>
 
-      <ul className="md:hidden px-6 flex flex-wrap justify-center gap-x-6 gap-y-5">
-        {solutions.map(name => <li key={name} className="font-display text-2xl font-medium text-copy-700 text-center">{name}</li>)}
+      <ul className="solutions-mobile">
+        {solutions.map(name => <li key={name} className="solutions-mobile-item">{name}</li>)}
       </ul>
       <div className="solutions-marquees hidden md:flex flex-col gap-12">
         <MarqueeText items={mapped1} direction="forward" />
