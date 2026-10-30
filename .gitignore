@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .agents/*
+
+# Criativos locais para Instagram
+/instagram-criativos/
