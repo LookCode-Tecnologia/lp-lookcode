@@ -74,21 +74,21 @@ export default function ProcessTimeline() {
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ margin: '-20%' }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="process-step-copy pl-10 md:pl-24 relative w-full max-w-2xl"
+          className="pl-16 md:pl-24 relative w-full max-w-2xl"
         >
           {/* Faded Background Number */}
-          <div className="absolute -top-6 md:-top-20 left-8 md:left-16 font-display text-[6rem] md:text-[12rem] text-foreground/5 font-bold leading-none select-none pointer-events-none">
+          <div className="absolute -top-12 md:-top-20 left-12 md:left-16 font-display text-[8rem] md:text-[12rem] text-foreground/5 font-bold leading-none select-none pointer-events-none">
             0{index + 1}
           </div>
 
           <div className="relative z-10">
-            <span className="inline-block border border-foreground/10 text-copy-900 bg-surface-950 font-mono text-xs px-3 py-1 rounded-full mb-4 md:mb-6">
+            <span className="inline-block border border-foreground/10 text-copy-900 bg-surface-950 font-mono text-xs px-3 py-1 rounded-full mb-6">
               {step.duration}
             </span>
-            <h3 className={`font-display text-3xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight transition-colors duration-500 ${inView ? 'text-foreground' : 'text-copy-500'}`}>
+            <h3 className={`font-display text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight transition-colors duration-500 ${inView ? 'text-foreground' : 'text-copy-500'}`}>
               {step.title}
             </h3>
-            <p className={`font-body text-lg md:text-2xl mb-4 md:mb-6 transition-colors duration-500 ${inView ? 'text-signal' : 'text-copy-700'}`}>
+            <p className={`font-body text-xl md:text-2xl mb-6 transition-colors duration-500 ${inView ? 'text-signal' : 'text-copy-700'}`}>
               "{step.tagline}"
             </p>
             <p className="text-copy-900 text-base md:text-lg leading-relaxed max-w-lg">
@@ -103,7 +103,7 @@ export default function ProcessTimeline() {
   return (
     <section ref={containerRef} className="bg-surface-900 relative" id="process">
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-10 md:pt-32 md:pb-16">
-        <ScrollReveal className="process-heading">
+        <ScrollReveal>
           <p className="font-mono text-xs text-signal uppercase tracking-widest mb-4">Nosso processo</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tight">Da ideia à evolução.</h2>
         </ScrollReveal>
@@ -115,7 +115,7 @@ export default function ProcessTimeline() {
         <div className="w-px bg-foreground/5 absolute top-0 bottom-0 left-6 md:left-12 opacity-50"></div>
 
         {/* The active animated line */}
-        <div className="hidden md:block sticky top-0 h-screen w-px left-6 md:left-12 flex-shrink-0 z-0">
+        <div className="sticky top-0 h-screen w-px left-6 md:left-12 flex-shrink-0 z-0">
           <motion.div
             className="absolute top-0 w-[3px] -ml-[1px] bg-gradient-to-b from-signal/10 via-signal to-signal/10 origin-top shadow-[0_0_15px_rgba(0,217,255,0.5)]"
             style={{ scaleY, height: "100vh" }}
