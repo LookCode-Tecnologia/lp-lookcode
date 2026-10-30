@@ -14,7 +14,7 @@ export default function Hero() {
       const { clientX, clientY } = e
       blobRef.current.style.transform = `translate(${clientX - 400}px, ${clientY - 400}px)`
     }
-    if (reduced) return
+    if (reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [reduced])
@@ -37,12 +37,12 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen bg-surface-950 overflow-hidden flex flex-col justify-center pt-20 pb-20">
+    <section className="hero-section relative min-h-screen bg-surface-950 overflow-hidden flex flex-col justify-center pt-20 pb-20">
 
       {/* Dynamic Backgrounds */}
       <div
         ref={blobRef}
-        className="absolute top-0 left-0 w-[800px] h-[800px] bg-signal/10 rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out z-0"
+        className="hero-glow absolute top-0 left-0 w-[800px] h-[800px] bg-signal/10 rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out z-0"
       />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
       <div className="grain absolute inset-0 z-[1]"></div>
@@ -109,16 +109,16 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/30 z-20"
+        className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/30 z-20"
       >
         <ChevronDown size={24} />
       </motion.div>
 
       {/* Abstract floating shapes behind content */}
-      <div className="absolute top-1/2 right-1/4 z-0 opacity-20 pointer-events-none">
+      <div className="hidden md:block absolute top-1/2 right-1/4 z-0 opacity-20 pointer-events-none">
         <motion.div animate={{ y: [0, -30, 0], rotate: [0, 10, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="w-64 h-64 border border-signal rounded-full" />
       </div>
-      <div className="absolute bottom-1/4 right-[10%] z-0 text-foreground/5 pointer-events-none">
+      <div className="hidden md:block absolute bottom-1/4 right-[10%] z-0 text-foreground/5 pointer-events-none">
         <motion.div animate={{ y: [0, 40, 0], rotate: [0, -15, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}>
           <svg width="200" height="200" viewBox="0 0 100 100" fill="currentColor"><rect width="100" height="100" className="clip-diagonal"/></svg>
         </motion.div>

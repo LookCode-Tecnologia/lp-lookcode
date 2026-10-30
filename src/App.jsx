@@ -28,7 +28,7 @@ function HomePage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative bg-surface-950 font-body text-copy-100 overflow-x-clip selection:bg-signal selection:text-ink-950">
+      <div className="relative bg-surface-950 font-body text-copy-100 md:overflow-x-clip selection:bg-signal selection:text-ink-950">
         <CustomCursor />
         <ScrollProgressBar />
         <Navbar />

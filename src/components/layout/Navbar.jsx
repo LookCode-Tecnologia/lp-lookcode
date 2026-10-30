@@ -42,7 +42,7 @@ export default function Navbar() {
     return () => { viewport?.removeEventListener('resize', resizePanel); window.removeEventListener('resize', resizePanel); document.body.style.overflow = old; document.removeEventListener('keydown', handleKey); media.removeEventListener('change', close) }
   }, [open])
   return <>
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${open ? 'bg-surface-950 py-4' : scrolled ? 'backdrop-blur-xl bg-surface-950/80 border-b border-foreground/5 py-4' : 'bg-transparent py-6'}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${open ? 'bg-surface-950 py-4' : scrolled ? 'md:backdrop-blur-xl bg-surface-950/95 md:bg-surface-950/80 border-b border-foreground/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center gap-6">
         <a href="#" aria-label="Look Code — início" className="relative z-50 shrink-0 py-2"><BrandLogo className="w-40 lg:w-48" /></a>
         <nav aria-label="Navegação principal" className="hidden md:flex items-center gap-4 lg:gap-8">{links.map(([label,id]) => <a key={id} href={`#${id}`} className="font-body text-sm text-copy-900 hover:text-foreground transition-colors relative group">{label}<span className="absolute -bottom-1 left-0 h-px bg-signal w-0 group-hover:w-full transition-all duration-300" /></a>)}</nav>

@@ -7,7 +7,7 @@
   }
 
   body {
-    @apply bg-surface-950 text-copy-100 font-body overflow-x-hidden;
+    @apply bg-surface-950 text-copy-100 font-body;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -116,3 +116,11 @@ html:not(.is-hydrated) #root [style*="opacity:0"] {
  #solutions-band .solutions-marquees { display: none !important; }
 }
 @media (min-width: 768px) { .solutions-mobile { display: none; } }
+
+/* Avoid a page-sized clipped layer and costly filters during iOS touch scrolling. */
+@media (max-width: 767px) {
+ #process, #work { overflow-x: clip; }
+ .hero-section { background-image: radial-gradient(ellipse at top left, rgb(0 217 255 / 8%), transparent 75%); }
+ .hero-section .hero-glow, .hero-section > .grain { display: none; }
+}
+@media (min-width: 768px) { body { overflow-x: hidden; } }
