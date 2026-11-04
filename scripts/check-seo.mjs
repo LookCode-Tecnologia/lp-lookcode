@@ -21,7 +21,9 @@ for (const [path, page] of Object.entries(seoPages)) {
   if (path === '/') {
     for (const service of services) assert.ok(html.includes(service.desc), `Missing service: ${service.title}`)
     for (const faq of faqs) assert.ok(html.includes(faq.a), `Missing FAQ: ${faq.q}`)
-    assert.equal((html.match(/<details\b/g) || []).length, faqs.length)
+    assert.equal((html.match(/<details\b/g) || []).length, faqs.length + 1)
+    assert.equal((html.match(/data-products-faq/g) || []).length, 1, 'One products FAQ entry')
+    assert.ok(html.includes('Quais produtos a Look Code já desenvolveu?'))
   }
   console.log(`SEO OK: ${path}`)
 }

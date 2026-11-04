@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#123E58"/><stop offset="1" stop-color="#06151F"/></linearGradient>
+    <linearGradient id="area" x1="320" y1="380" x2="320" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#42D4EE" stop-opacity=".24"/><stop offset="1" stop-color="#42D4EE" stop-opacity="0"/></linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" stroke="#94DBEC" stroke-opacity=".07"/></pattern>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <rect width="640" height="800" fill="url(#grid)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="65" fill="#8DCBDD" font-size="14" letter-spacing="3">LOOK CODE / PRODUTOS</text>
+    <path d="m544 48 12 12-12 12m24-24-12 12 12 12" stroke="#42D4EE" stroke-width="2"/>
+    <text x="48" y="153" fill="#F2FBFF" font-size="49" font-weight="600" letter-spacing="-2">Lookcode</text>
+    <text x="48" y="210" fill="#42D4EE" font-size="49" font-weight="600" letter-spacing="-2">Financeiro</text>
+    <text x="48" y="258" fill="#B4D2DF" font-size="19">Clareza para o seu dinheiro.</text>
+    <rect x="48" y="321" width="544" height="330" rx="18" fill="#091E2B" stroke="#2D5667"/>
+    <text x="76" y="363" fill="#9FC1CF" font-size="12" letter-spacing="2">CADA PASSO CONTA</text>
+    <path d="M77 416H564M77 480H564M77 544H564M77 608H564" stroke="#264754" stroke-dasharray="3 6"/>
+    <path d="m78 578 80-28 80 12 80-71 80 18 80-87 83-31v237H78Z" fill="url(#area)"/>
+    <path d="m78 578 80-28 80 12 80-71 80 18 80-87 83-31" stroke="#42D4EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="561" cy="391" r="12" fill="#42D4EE" fill-opacity=".2"/><circle cx="561" cy="391" r="5" fill="#6EE7F5"/>
+    <text x="48" y="726" fill="#B4D2DF" font-size="13" letter-spacing="2">GASTOS · ORÇAMENTOS · METAS</text>
+    <text x="48" y="762" fill="#628FA1" font-size="12">FINANÇAS PESSOAIS</text><text x="563" y="762" fill="#8DCBDD" font-size="12">01</text>
+  </g>
+</svg>

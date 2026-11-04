@@ -1,8 +1,11 @@
 import { Plus, Minus } from 'lucide-react'
 import { faqs } from '../../data/content'
 import ScrollReveal from '../ui/ScrollReveal'
+import { useState } from 'react'
+import ProductsSection from './ProductsSection'
 
 export default function FAQSection() {
+  const [productsOpen, setProductsOpen] = useState(false)
 
   return (
     <section className="bg-surface-950 py-32 border-b border-foreground/5" id="faq">
@@ -41,6 +44,14 @@ export default function FAQSection() {
 
         </div>
       </div>
+      <details data-products-faq className="group mt-16 border-y border-foreground/10" onToggle={event => setProductsOpen(event.currentTarget.open)}>
+        <summary className="mx-auto flex min-h-20 max-w-7xl cursor-pointer list-none items-center justify-between gap-8 px-6 py-6 font-display text-2xl tracking-tight group-open:text-signal md:px-12 md:text-3xl">
+          <span>Quais produtos a Look Code já desenvolveu?</span>
+          <Plus size={24} aria-hidden="true" className="shrink-0 group-open:hidden" />
+          <Minus size={24} aria-hidden="true" className="hidden shrink-0 group-open:block" />
+        </summary>
+        <ProductsSection presentationEnabled={productsOpen} />
+      </details>
     </section>
   )
 }

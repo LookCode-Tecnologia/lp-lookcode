@@ -49,7 +49,7 @@ npm run preview
 A página utiliza a composição do [Nexus Studio](https://github.com/legendxdevil/nexus-studio), adaptada à Look Code em tema escuro, com azul `#0066FF`, ciano `#00D9FF`, conteúdo em português e Motion for React.
 
 - `src/components/layout/`: navegação e rodapé.
-- `src/components/sections/`: as 14 seções da landing page.
+- `src/components/sections/`: seções da landing page, incluindo a coleção de produtos.
 - `src/components/ui/`: animações e componentes compartilhados.
 - `src/data/content.js`: serviços, soluções, disciplinas e perguntas frequentes.
 - `src/data/contact.js`: URL principal de contato no WhatsApp.
@@ -58,6 +58,23 @@ A página utiliza a composição do [Nexus Studio](https://github.com/legendxdev
 Os números institucionais foram preservados da página anterior. Os cards de soluções descrevem especialidades; o carrossel apresenta princípios da Look Code. Não representam cases ou depoimentos de clientes.
 
 As rotas `/privacy-policy` e `/terms-of-service` continuam disponíveis. A página inclui menu mobile com Escape e controle de foco, FAQ acessível, links funcionais e suporte a movimento reduzido. As fontes são carregadas via Fontshare e Google Fonts.
+
+## Coleção de produtos
+
+A seção `#products` fica dentro da pergunta “Quais produtos a Look Code já desenvolveu?” na FAQ. O final da página segue a ordem CTA → FAQ (incluindo produtos) → Nossa stack → footer. A stack inclui Azure em Cloud e OpenAI, Claude, Gemini, Llama, DeepSeek e Mistral AI em AI/ML, além das ferramentas de integração. Ao expandir a pergunta, a apresentação dos produtos mantém o visual e a sequência por rolagem. Apresenta Lookcode Financeiro, Futspot e Oficina Lookcode, com links públicos e conteúdo baseado nas respectivas páginas. As capas em `public/products/` são ilustrações editoriais, não capturas das interfaces autenticadas.
+
+- `src/components/sections/ProductsSection.tsx`: dados, textos e links dos três produtos.
+- `src/components/ui/gsap-card-flip.tsx`: adaptação do componente enviado, com GSAP Flip e SplitText. Mantém os mesmos elementos dos cartões entre a pilha e a galeria, oferece seleção por teclado e respeita movimento reduzido.
+- `src/hooks/useMediaQuery.ts`: consulta responsiva com suporte a renderização no servidor e limpeza das assinaturas.
+- `src/index.css`: estilos compartilhados e regras responsivas da coleção.
+
+O projeto já usa Tailwind CSS 4 e agora suporta TypeScript sem exigir a migração dos arquivos JSX existentes. Execute `npm run typecheck` para verificar os arquivos TS/TSX. O alias `@/` aponta para `src/`, tanto no Vite quanto no TypeScript.
+
+Em telas com pelo menos 900px de largura e 760px de altura, sem preferência por movimento reduzido, Motion for React (`useScroll` e `useMotionValueEvent`) acompanha a rolagem nativa: a seção fica fixa abaixo do menu por um percurso de 400svh. Os primeiros 10% mostram a pilha; depois, Financeiro, Futspot e Oficina ocupam intervalos de 30% cada. A rolagem reversa percorre a sequência ao contrário. O indicador de progresso usa um `motion.div`. Cliques e setas sincronizam a posição da página com o produto escolhido, e “Continuar na página” permite avançar diretamente. Não há interceptação de roda do mouse ou toque, temporizador ou avanço automático enquanto a página está parada.
+
+Em celulares, tablets menores, janelas baixas, movimento reduzido ou sem JavaScript, os três produtos aparecem em blocos sucessivos com descrição, recursos e acesso. Assim, todos podem ser conhecidos com a rolagem normal, sem depender de interação com a galeria.
+
+A estrutura shadcn está configurada em `components.json`, com `src/components/ui` como pasta de componentes reutilizáveis e `src/lib/utils.ts` para `cn`. O caminho `@/components/ui` equivale a essa pasta: criar outra pasta `components/ui` na raiz duplicaria a estrutura. Essa convenção mantém os imports dos componentes e a instalação via CLI consistentes. Para adicionar componentes shadcn no futuro, use `npx shadcn@latest add <componente>`; revise os estilos gerados para preservar os tokens da identidade Look Code.
 
 ## Licenças
 

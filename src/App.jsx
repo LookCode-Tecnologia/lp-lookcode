@@ -44,11 +44,11 @@ function HomePage() {
           <StatsSection />
           <TeamSection />
           <TestimonialsCarousel />
-          <TechStack />
           <PricingSection />
-          <FAQSection />
           <BlogPreview />
           <CTASection />
+          <FAQSection />
+          <TechStack />
         </main>
 
         <Footer />

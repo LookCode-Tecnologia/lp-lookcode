@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#224D35"/><stop offset="1" stop-color="#0A1D16"/></linearGradient>
+    <pattern id="turf" width="80" height="80" patternUnits="userSpaceOnUse"><rect width="40" height="80" fill="#A0D984" fill-opacity=".025"/></pattern>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <rect width="640" height="800" fill="url(#turf)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="65" fill="#B3D6A7" font-size="14" letter-spacing="3">LOOK CODE / PRODUTOS</text>
+    <path d="m544 48 12 12-12 12m24-24-12 12 12 12" stroke="#C5EF8A" stroke-width="2"/>
+    <text x="48" y="176" fill="#EAF8D9" font-size="75" font-weight="700" letter-spacing="-4">Futspot</text>
+    <text x="48" y="226" fill="#BED5B7" font-size="19">O seu futebol tem história.</text>
+    <g transform="translate(80 285)">
+      <rect width="480" height="370" rx="18" fill="#0D2C20" stroke="#7CAC79" stroke-opacity=".5"/>
+      <path d="M24 24H456V346H24ZM240 24V346M24 102H98V268H24M456 102H382V268H456" stroke="#7CAC79" stroke-width="2"/>
+      <circle cx="240" cy="185" r="56" stroke="#7CAC79" stroke-width="2"/><circle cx="240" cy="185" r="4" fill="#7CAC79"/>
+      <path d="m112 275 111-47 75-117 114-45" stroke="#C5EF8A" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 9"/>
+      <circle cx="112" cy="275" r="13" fill="#C5EF8A"/><circle cx="223" cy="228" r="9" fill="#0D2C20" stroke="#C5EF8A" stroke-width="3"/>
+      <circle cx="298" cy="111" r="9" fill="#0D2C20" stroke="#C5EF8A" stroke-width="3"/>
+      <circle cx="412" cy="66" r="23" fill="#C5EF8A" fill-opacity=".18"/><circle cx="412" cy="66" r="8" fill="#C5EF8A"/>
+      <path d="m402 49 16 11-3-18" stroke="#C5EF8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="48" y="726" fill="#BED5B7" font-size="13" letter-spacing="2">JOGADORES · TIMES · CAMPEONATOS</text>
+    <text x="48" y="762" fill="#799C7D" font-size="12">FUTEBOL AMADOR</text><text x="563" y="762" fill="#B3D6A7" font-size="12">02</text>
+  </g>
+</svg>

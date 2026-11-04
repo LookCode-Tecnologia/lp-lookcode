@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#203C72"/><stop offset="1" stop-color="#0B1427"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#9DBEF4" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/><rect width="640" height="800" fill="url(#grid)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="65" fill="#ADC7F2" font-size="14" letter-spacing="3">LOOK CODE / PRODUTOS</text>
+    <path d="m544 48 12 12-12 12m24-24-12 12 12 12" stroke="#8AB9FF" stroke-width="2"/>
+    <text x="48" y="153" fill="#F0F5FF" font-size="56" font-weight="600" letter-spacing="-2">Oficina</text>
+    <text x="48" y="214" fill="#8AB9FF" font-size="56" font-weight="600" letter-spacing="-2">Lookcode</text>
+    <text x="48" y="262" fill="#B6C8E4" font-size="19">Sua oficina em movimento.</text>
+    <circle cx="320" cy="466" r="145" stroke="#658AC2" stroke-opacity=".3"/><circle cx="320" cy="466" r="110" stroke="#658AC2" stroke-opacity=".3" stroke-dasharray="4 9"/>
+    <path d="M341 365a75 75 0 0 0-88 95l-79 79a28 28 0 0 0 40 40l79-79a75 75 0 0 0 95-88l-45 45-47-47Z" fill="#12284B" stroke="#8AB9FF" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="198" cy="555" r="7" stroke="#8AB9FF" stroke-width="3"/>
+    <rect x="397" y="565" width="171" height="48" rx="24" fill="#284C80" stroke="#658AC2"/><circle cx="422" cy="589" r="5" fill="#8AB9FF"/><text x="438" y="594" fill="#D8E7FF" font-size="13">Tudo no seu lugar</text>
+    <text x="48" y="726" fill="#B6C8E4" font-size="13" letter-spacing="2">SERVIÇOS · AGENDA · FINANCEIRO</text>
+    <text x="48" y="762" fill="#7F9BC5" font-size="12">GESTÃO DE OFICINAS</text><text x="563" y="762" fill="#ADC7F2" font-size="12">03</text>
+  </g>
+</svg>

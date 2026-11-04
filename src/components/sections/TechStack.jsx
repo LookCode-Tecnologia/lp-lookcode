@@ -5,13 +5,13 @@ export default function TechStack() {
   const stack = [
     { cat: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Motion', 'React Native'] },
     { cat: 'Backend', items: ['Node.js', 'Python', 'NestJS', 'PostgreSQL', 'Redis'] },
-    { cat: 'Cloud', items: ['AWS', 'Vercel', 'Docker', 'Kubernetes'] },
+    { cat: 'Cloud', items: ['AWS', 'Azure', 'Vercel', 'Docker', 'Kubernetes'] },
     { cat: 'Design', items: ['Figma', 'Prototipagem', 'UI/UX'] },
-    { cat: 'AI/ML', items: ['OpenAI', 'Langchain', 'Pinecone', 'HuggingFace'] }
+    { cat: 'AI/ML', items: ['OpenAI', 'Claude', 'Gemini', 'Llama', 'DeepSeek', 'Mistral AI', 'LangChain', 'Pinecone', 'Hugging Face'] }
   ]
 
   return (
-    <section className="bg-surface-900 py-32 border-t border-b border-foreground/5">
+    <section id="stack" className="bg-surface-900 py-32 border-t border-b border-foreground/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <ScrollReveal className="mb-20">
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">Nossa stack.</h2>

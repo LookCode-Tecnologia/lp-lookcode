@@ -5,7 +5,7 @@ import MagneticButton from '../ui/MagneticButton'
 import BrandLogo from '../ui/BrandLogo'
 import { contactUrl } from '../../data/contact'
 
-const links = [['Soluções', 'work'], ['Serviços', 'services'], ['Processo', 'process'], ['Sobre', 'team'], ['Conteúdo', 'blog'], ['Contato', 'contact']]
+const links = [['Produtos', 'products'], ['Soluções', 'work'], ['Serviços', 'services'], ['Processo', 'process'], ['Sobre', 'team'], ['Conteúdo', 'blog'], ['Contato', 'contact']]
 export default function Navbar() {
   const reduced = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
